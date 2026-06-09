@@ -1,0 +1,90 @@
+PART 1
+
+git config --global user.name "Your Name"
+git config --global user.email "you@example.com"
+git config --global core.editor "code --wait"
+
+mkdir git-journal-project
+cd git-journal-project
+
+git init
+git branch -M main
+
+
+git remote add origin https://github.com/YOUR_USERNAME/git-journal-project.git
+
+git remote -v
+
+
+PART 2
+
+echo "# Git Journal Project" > README.md
+git add README.md
+git commit -m "Add project README"
+
+echo "Day 1: Repository initialized." > journal.txt
+git add journal.txt
+git commit -m "Add journal entry file"
+
+echo "theme=light" > config.txt
+git add config.txt
+git commit -m "Add application configuration"
+
+git push -u origin main
+
+
+PART 3
+
+git tag -a v1.0.0 -m "Release version 1.0.0"
+git push --tags
+
+
+
+PART 4
+
+git checkout -b feature/mood-log
+
+echo "# Mood Log" > MOOD_LOG.md
+git add MOOD_LOG.md
+git commit -m "Add mood log document"
+
+echo "" >> README.md
+echo "This project includes mood tracking." >> README.md
+git add README.md
+git commit -m "Update README with mood log information"
+
+git push -u origin feature/mood-log
+
+git log --oneline --all --graph
+
+
+PART 5
+
+echo "theme=dark" > config.txt
+git add config.txt
+git commit -m "Change theme setting to dark"
+
+git checkout main
+
+theme=solarized
+
+git add config.txt
+git commit -m "Change theme setting to solarized"
+
+git push
+
+git checkout feature/mood-log
+
+git merge main
+
+
+theme=dark
+
+theme=dark-solarized
+
+git add config.txt
+git commit -m "Resolve configuration merge conflict"
+
+git push
+
+git log --oneline --all --graph --decorate
